@@ -1,0 +1,4 @@
+.stack-work/
+hcl-parsec.cabal
+*~
+stack.yaml.lock

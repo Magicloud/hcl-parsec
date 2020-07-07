@@ -1,0 +1,63 @@
+name: hcl-parsec
+version: 2020.7.7
+github: "Magicloud/hcl-parsec"
+license: BSD3
+author: "Magicloud"
+maintainer: "1886157+Magicloud@users.noreply.github.com"
+copyright: "None"
+
+extra-source-files:
+  - README.md
+  - ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            tool
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description: Please see the README on GitHub at <https://github.com/Magicloud/hcl-parsec#readme>
+
+dependencies:
+  - base >= 4.7 && < 5
+  - megaparsec
+  - text
+  - containers
+  - scientific
+
+library:
+  source-dirs: src
+  ghc-options:
+    - -Wall
+
+tests:
+  tfa-test:
+    main: Test.hs
+    source-dirs: test
+    ghc-options:
+      - -threaded
+    dependencies:
+      - hcl-parsec
+      - megaparsec
+      - neat-interpolation
+
+executables:
+  audit:
+    main: audit.hs
+    source-dirs: examples
+    ghc-options:
+      - -Wall
+      - -threaded
+    dependencies:
+      - hcl-parsec
+      - megaparsec
+  switch:
+    main: switch.hs
+    source-dirs: examples
+    ghc-options:
+      - -Wall
+      - -threaded
+    dependencies:
+      - hcl-parsec
+      - megaparsec
