@@ -1,5 +1,5 @@
 name: hcl-parsec
-version: 2020.7.7
+version: 2020.8.19
 github: "Magicloud/hcl-parsec"
 license: BSD3
 author: "Magicloud"
@@ -21,15 +21,20 @@ description: Please see the README on GitHub at <https://github.com/Magicloud/hc
 
 dependencies:
   - base >= 4.7 && < 5
-  - megaparsec
-  - text
   - containers
+  - megaparsec
+  - optics-core
+  - optics-th
   - scientific
+  - text
 
 library:
   source-dirs: src
   ghc-options:
     - -Wall
+    - -ddump-types
+    - -ddump-splices
+    - -ddump-deriv
 
 tests:
   tfa-test:
