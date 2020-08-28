@@ -57,6 +57,7 @@ executables:
     dependencies:
       - hcl-parsec
       - megaparsec
+      - pretty-simple
   switch:
     main: switch.hs
     source-dirs: examples
