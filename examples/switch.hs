@@ -9,6 +9,7 @@ import           Data.Text (Text)
 import           Data.Text.IO as T
 import           System.Environment
 import           Text.Megaparsec
+import Debug.Trace
 
 data ModRef = MR { source :: PosedText
                  , version :: Maybe PosedText }
@@ -97,7 +98,7 @@ replaceAtWith c f t r =
   in pre ++ edit' ++ post
 
 extractRange :: [a] -> Int -> Int -> ([a], [a], [a])
-extractRange xs s e =
-  let (ab, c) = splitAt e xs
-      (a, b) = splitAt (s - 1) ab
+extractRange xs from to =
+  let (ab, c) = splitAt to xs
+      (a, b) = splitAt (from - 1) ab
   in (a, b, c)

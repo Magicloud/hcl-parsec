@@ -12,7 +12,7 @@ import           Data.Text (Text)
 import           Text.Megaparsec
 import           Text.Megaparsec.Char
 import           Text.Megaparsec.Char.Lexer as L
--- import           Text.Megaparsec.Debug
+import           Text.Megaparsec.Debug
 
 hclIdent :: Parser PosedText
 hclIdent = label "hclIdent" $ do
