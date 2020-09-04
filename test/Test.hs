@@ -2,18 +2,28 @@
 {-# LANGUAGE QuasiQuotes #-}
 
 import Data.HCL
-import Text.Megaparsec
+
 import NeatInterpolation
 
-test = [text|
-{
-  http_port = 80
-  db_host   = module.rds.endpoint
-  db_db     = "confluence"
-  db_user   = "confluence"
-  db_pass   = var.db_password
+import Text.Megaparsec
+import Text.Pretty.Simple ( pPrint )
+
+test =
+  [text|
+module "test" {
+  test = <<EOF
+a$${b}c
+de$${f}
+$${g}hi
+j$$$${k}l
+mno
+EOF
 }
 |]
 
 main :: IO ()
-main = print $ runParser (hclMap <* eof) "" test
+main =
+  pPrint
+  $ runParser (hclDoc <* eof)
+              "mock"
+              "module \"test\" {\n  test = <<EOF\nj$${k}l\nEOF\n}"

@@ -41,6 +41,7 @@ tests:
       - hcl-parsec
       - megaparsec
       - neat-interpolation
+      - pretty-simple
 
 executables:
   audit:
